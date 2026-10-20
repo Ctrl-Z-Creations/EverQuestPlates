@@ -1,0 +1,28 @@
+# Builds EverQuestPlates and uploads it whenever you push a version tag (e.g. v1.2.0).
+# Uploads to CurseForge / Wago only once their project IDs are in EverQuestPlates.toc
+# and the CF_API_KEY / WAGO_API_TOKEN secrets exist on the Ctrl-Z-Creations org.
+name: Package and release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      CF_API_KEY: ${{ secrets.CF_API_KEY }}
+      WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
+      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Package and upload
+        uses: BigWigsMods/packager@v2
