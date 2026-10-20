@@ -1,0 +1,10 @@
+## Interface: 16001
+## Title: EverQuestPlates
+## Notes: Shows a gold ! and quest progress (0/8) on the nameplates of mobs you need. Type /eqp for options (left, right or middle position).
+## Author: Seth Sullivan
+## Version: @project-version@
+## X-Website: https://github.com/Ctrl-Z-Creations/EverQuestPlates
+## X-Author-Team: Ctrl+Z Creations
+## SavedVariables: EverQuestPlatesDB
+
+EverQuestPlates.lua
